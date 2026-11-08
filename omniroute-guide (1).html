@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OmniRoute Installation Guide (Step by Step)</title>
+<style>
+:root{--bg:#ffffff;--ink:#1b1f2a;--mute:#6b7280;--acc:#5b3df5;--soft:#f1eeff;--code:#f3f4f6;--line:#d1d5db;--warn:#fff4e5;--warnb:#f59e0b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12141b;--ink:#e8eaf0;--mute:#9ca3af;--acc:#8b78ff;--soft:#211d3a;--code:#1d2029;--line:#343846;--warn:#2e2412;--warnb:#f59e0b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12141b;--ink:#e8eaf0;--mute:#9ca3af;--acc:#8b78ff;--soft:#211d3a;--code:#1d2029;--line:#343846;--warn:#2e2412;--warnb:#f59e0b;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 18px 48px}
+h1{font-size:2rem;margin:0 0 4px}
+.sub{color:var(--mute);margin:0 0 18px}
+h2{font-size:1.2rem;margin:28px 0 8px}
+a{color:var(--acc);word-break:break-all}
+.links{background:var(--soft);border-radius:10px;padding:12px 14px}
+.links p{margin:6px 0}
+.note{border-left:4px solid var(--acc);background:var(--soft);padding:10px 14px;border-radius:6px;margin:12px 0}
+.warn{border-left-color:var(--warnb);background:var(--warn)}
+.step{margin:26px 0}
+.step h3{display:flex;align-items:center;gap:10px;font-size:1.1rem;margin:0 0 8px}
+.n{flex:none;width:30px;height:30px;border-radius:8px;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font-weight:700}
+.step ul,ul.plain{margin:6px 0;padding-left:20px}
+pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 12px;overflow-x:auto;margin:8px 0;font:0.88rem/1.5 ui-monospace,Menlo,Consolas,monospace}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:4px;font-size:0.9em}
+pre code{background:none;padding:0}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+.foot{color:var(--mute);font-size:0.9rem;margin-top:28px}
+.codebox{position:relative;margin:8px 0}
+.codebox pre{margin:0;padding-top:40px}
+.copy{position:absolute;top:8px;right:8px;background:var(--acc);color:#fff;border:0;border-radius:6px;padding:6px 12px;font:600 0.8rem -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;cursor:pointer}
+.copy:active{opacity:.8}
+.copy.ok{background:#16a34a}
+.fname{position:absolute;top:12px;left:12px;color:var(--mute);font:0.78rem ui-monospace,Menlo,Consolas,monospace}
+</style>
+</head>
+<body>
+<main>
+<h1>OmniRoute</h1>
+<p class="sub">Free AI Gateway: Step by Step Installation Guide</p>
+
+<p>OmniRoute is a <b>free, open-source AI gateway</b>. It connects many AI providers, including free ones, behind a single endpoint. Your coding tool (Cursor, Cline, Claude Code and others) talks to that one endpoint, OmniRoute picks a provider for you, and if one provider hits its limit it switches to another automatically.</p>
+
+<h2>Official links</h2>
+<div class="links">
+<p><b>Website:</b> <a href="https://omniroute.online" target="_blank" rel="noopener">https://omniroute.online</a></p>
+<p><b>GitHub:</b> <a href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener">https://github.com/diegosouzapw/OmniRoute</a></p>
+</div>
+<div class="note warn"><b>Be careful:</b> there are many mirror sites and hosting pages for OmniRoute. Download and install commands <b>only from the two official links above</b>, and stay away from fake sites.</div>
+
+<h2>Before you start</h2>
+<ul class="plain">
+<li>A computer running Windows, Mac or Linux.</li>
+<li><b>Node.js 22 LTS</b> (recommended). Check the GitHub README for the latest requirement.</li>
+<li>An internet connection and about 10 minutes. No credit card needed.</li>
+</ul>
+
+<div class="step"><h3><span class="n">1</span>Install Node.js</h3>
+<ul><li>Open <b>nodejs.org</b> in your browser.</li><li>Download the <b>LTS</b> version and install it.</li><li>Open a terminal and check:</li></ul>
+<pre><code>node -v</code></pre>
+<p>If it prints a version number (for example v22.x.x), Node is installed correctly.</p></div>
+
+<div class="step"><h3><span class="n">2</span>Open a terminal</h3>
+<ul><li><b>Windows:</b> search for “PowerShell” in the Start menu.</li><li><b>Mac:</b> press Cmd + Space, type “Terminal”.</li><li><b>Linux:</b> press Ctrl + Alt + T.</li></ul></div>
+
+<div class="step"><h3><span class="n">3</span>Install OmniRoute</h3>
+<p>Paste this into the terminal and press Enter:</p>
+<pre><code>npm install -g omniroute</code></pre>
+<p>It can take about a minute. If it finishes without errors, the install worked.</p></div>
+
+<div class="step"><h3><span class="n">4</span>Start OmniRoute</h3>
+<pre><code>omniroute</code></pre>
+<p>The server starts on port <b>20128</b>.</p>
+<div class="note"><b>Important:</b> do <b>not close</b> this terminal window. Closing it stops OmniRoute.</div></div>
+
+<div class="step"><h3><span class="n">5</span>Open the dashboard</h3>
+<p>Open this address in your browser:</p>
+<pre><code>http://localhost:20128</code></pre>
+<p>The dashboard appears. On first run a password or setup screen may show up. Follow it.</p></div>
+
+<div class="step"><h3><span class="n">6</span>Connect a free provider</h3>
+<ul><li>Go to the <b>Providers</b> page and click <b>Add Provider</b>.</li>
+<li>Choose a free option, for example <b>Kiro AI</b> (for Claude models) or <b>OpenCode Free</b>.</li>
+<li>Click <b>Connect</b> and follow the instructions on screen.</li></ul>
+<div class="note">Free providers and models change over time. What you see in your own dashboard is the final word.</div></div>
+
+<div class="step"><h3><span class="n">7</span>Get your API key</h3>
+<ul><li>Open <b>Settings</b>, then the <b>API Keys</b> section.</li><li>Create a new key or copy an existing one.</li></ul>
+<div class="note warn">Never share your API key with anyone, and blur it in screenshots.</div></div>
+
+<div class="step"><h3><span class="n">8</span>Use it in your tool</h3>
+<p>Open the settings of Cursor, Cline, Claude Code or any OpenAI-compatible tool and enter:</p>
+<pre><code>Base URL : http://localhost:20128/v1
+API Key  : (the key from step 7)
+Model    : auto   (or pick one from the dashboard list)</code></pre>
+<p>Send a prompt. If a response comes back, your setup is complete!</p></div>
+
+<h2>Optional: test from the terminal (Mac / Linux)</h2>
+<pre><code>curl http://localhost:20128/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{"model":"auto","messages":[{"role":"user","content":"Hello!"}]}'</code></pre>
+
+<h2>Alternative: install with Docker</h2>
+<p>If Node gives you trouble and you have Docker installed:</p>
+<pre><code>docker run -d --name omniroute --restart unless-stopped \
+  -p 20128:20128 -v omniroute-data:/app/data \
+  -e DATA_DIR=/app/data diegosouzapw/omniroute:latest</code></pre>
+<p>Then open <code>http://localhost:20128</code>.</p>
+
+<h2>Common problems and solutions</h2>
+<div class="tw"><table>
+<tr><th>Problem</th><th>Solution</th></tr>
+<tr><td>“npm” is not recognized</td><td>Node.js did not install properly. Reinstall it, then close and reopen the terminal.</td></tr>
+<tr><td>Node version error</td><td>Install Node 22 LTS and check the GitHub README for the latest requirement.</td></tr>
+<tr><td>EACCES / permission error (Mac, Linux)</td><td>Put <code>sudo</code> before the command, or fix your npm global folder permissions.</td></tr>
+<tr><td>localhost:20128 does not open</td><td>Check that <code>omniroute</code> is still running in the terminal. If you closed it, start it again.</td></tr>
+<tr><td>Port 20128 already in use</td><td>Close the other app using that port, or check whether OmniRoute is already running.</td></tr>
+<tr><td>No response from the model</td><td>Check that your provider is connected on the Providers page. You may have hit a free limit, so connect another provider.</td></tr>
+</table></div>
+
+<h2>Claude Code settings.json</h2>
+<p>If you use Claude Code, add this to your <code>settings.json</code> file. Replace the token and model with your own values from the OmniRoute dashboard.</p>
+<div class="codebox">
+<span class="fname">settings.json</span>
+<button class="copy" type="button" id="copyBtn">Copy</button>
+<pre><code id="settingsCode">{
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://localhost:20128",
+    "ANTHROPIC_AUTH_TOKEN": "your-omniroute-token-here",
+    "ANTHROPIC_MODEL": "123123"
+  }
+}</code></pre>
+</div>
+
+<h2>Good to remember</h2>
+<ul class="plain">
+<li>Free tiers have limits. Heavy usage can get you blocked by a provider.</li>
+<li>Model availability changes. Trust only what your dashboard shows.</li>
+<li>Keep your API keys private and follow each provider’s terms of service.</li>
+</ul>
+
+<p class="foot">Official website: <a href="https://omniroute.online" target="_blank" rel="noopener">omniroute.online</a> · Official GitHub: <a href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener">github.com/diegosouzapw/OmniRoute</a></p>
+</main>
+<script>
+(function(){
+  var btn=document.getElementById('copyBtn');
+  var code=document.getElementById('settingsCode');
+  function done(){
+    btn.textContent='Copied!';btn.classList.add('ok');
+    setTimeout(function(){btn.textContent='Copy';btn.classList.remove('ok');},1800);
+  }
+  function fallback(text){
+    var ta=document.createElement('textarea');
+    ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){}
+    document.body.removeChild(ta);
+  }
+  btn.addEventListener('click',function(){
+    var text=code.textContent;
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done,function(){fallback(text);});
+      }else{fallback(text);}
+    }catch(e){fallback(text);}
+  });
+})();
+</script>
+</body>
+</html>
